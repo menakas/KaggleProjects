@@ -2,13 +2,13 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "0088ad4e",
+   "id": "6cc9cabd",
    "metadata": {
     "papermill": {
-     "duration": 0.008495,
-     "end_time": "2022-09-24T16:02:44.321408",
+     "duration": 0.007853,
+     "end_time": "2022-09-27T05:47:29.606161",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.312913",
+     "start_time": "2022-09-27T05:47:29.598308",
      "status": "completed"
     },
     "tags": []
@@ -21,6 +21,7 @@
     "This is a case study project I am doing for two reasons:\n",
     "1. As the capstone project for the Coursera's [Google Data Analytics Specialization ](https://www.coursera.org/specializations/google-data-analytics)\n",
     "2. To learn to use Kaggle to create notebooks and perform data analytics.\n",
+    "3. To learn R, a new interest.\n",
     "\n",
     "## Why this dataset?\n",
     "\n",
@@ -30,13 +31,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c32cb6c4",
+   "id": "4e0baf40",
    "metadata": {
     "papermill": {
-     "duration": 0.006776,
-     "end_time": "2022-09-24T16:02:44.335266",
+     "duration": 0.006671,
+     "end_time": "2022-09-27T05:47:29.619645",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.328490",
+     "start_time": "2022-09-27T05:47:29.612974",
      "status": "completed"
     },
     "tags": []
@@ -48,13 +49,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4d1b23de",
+   "id": "69113fb5",
    "metadata": {
     "papermill": {
-     "duration": 0.00659,
-     "end_time": "2022-09-24T16:02:44.348263",
+     "duration": 0.006542,
+     "end_time": "2022-09-27T05:47:29.632435",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.341673",
+     "start_time": "2022-09-27T05:47:29.625893",
      "status": "completed"
     },
     "tags": []
@@ -68,13 +69,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b0791e3b",
+   "id": "548f7d56",
    "metadata": {
     "papermill": {
-     "duration": 0.007187,
-     "end_time": "2022-09-24T16:02:44.361942",
+     "duration": 0.006861,
+     "end_time": "2022-09-27T05:47:29.645522",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.354755",
+     "start_time": "2022-09-27T05:47:29.638661",
      "status": "completed"
     },
     "tags": []
@@ -89,13 +90,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3a595712",
+   "id": "cba7cb87",
    "metadata": {
     "papermill": {
-     "duration": 0.006754,
-     "end_time": "2022-09-24T16:02:44.375180",
+     "duration": 0.006703,
+     "end_time": "2022-09-27T05:47:29.659509",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.368426",
+     "start_time": "2022-09-27T05:47:29.652806",
      "status": "completed"
     },
     "tags": []
@@ -109,19 +110,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "b6770b60",
+   "id": "721aa28b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:44.392506Z",
-     "iopub.status.busy": "2022-09-24T16:02:44.390488Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.013832Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.011982Z"
+     "iopub.execute_input": "2022-09-27T05:47:29.676181Z",
+     "iopub.status.busy": "2022-09-27T05:47:29.674174Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.183120Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.181357Z"
     },
     "papermill": {
-     "duration": 1.634213,
-     "end_time": "2022-09-24T16:02:46.016215",
+     "duration": 1.52035,
+     "end_time": "2022-09-27T05:47:31.186140",
      "exception": false,
-     "start_time": "2022-09-24T16:02:44.382002",
+     "start_time": "2022-09-27T05:47:29.665790",
      "status": "completed"
     },
     "tags": []
@@ -147,48 +148,31 @@
       "\n",
       "    chisq.test, fisher.test\n",
       "\n",
-      "\n",
-      "\n",
-      "Attaching package: ‘lubridate’\n",
-      "\n",
-      "\n",
-      "The following objects are masked from ‘package:base’:\n",
-      "\n",
-      "    date, intersect, setdiff, union\n",
-      "\n",
-      "\n",
-      "here() starts at /kaggle/working\n",
       "\n"
      ]
     }
    ],
    "source": [
     "library(tidyverse)\n",
-    "library(skimr)\n",
-    "library(janitor)\n",
-    "library(dplyr)\n",
-    "library(lubridate)\n",
-    "library(ggplot2)\n",
-    "library(here)\n",
-    "library(RColorBrewer)"
+    "library(janitor) #for clean_names()"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "6309b95d",
+   "id": "e41eb6b5",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.062948Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.033361Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.216310Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.213667Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.234082Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.202520Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.326634Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.324939Z"
     },
     "papermill": {
-     "duration": 0.195332,
-     "end_time": "2022-09-24T16:02:46.219447",
+     "duration": 0.135356,
+     "end_time": "2022-09-27T05:47:31.328991",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.024115",
+     "start_time": "2022-09-27T05:47:31.193635",
      "status": "completed"
     },
     "tags": []
@@ -353,19 +337,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "fb8c8aff",
+   "id": "a7aeb30a",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.245386Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.242914Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.431967Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.429666Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.347660Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.346152Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.533457Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.531716Z"
     },
     "papermill": {
-     "duration": 0.20499,
-     "end_time": "2022-09-24T16:02:46.435068",
+     "duration": 0.198997,
+     "end_time": "2022-09-27T05:47:31.535709",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.230078",
+     "start_time": "2022-09-27T05:47:31.336712",
      "status": "completed"
     },
     "tags": []
@@ -440,12 +424,10 @@
     }
    ],
    "source": [
-    "team_stats <- team_stats %>%\n",
-    "clean_names()%>%\n",
-    "unique()\n",
+    "team_stats <- team_stats %>% clean_names() %>% unique()\n",
     "\n",
     "# Filter the last five years of data\n",
-    "team_stats <- team_stats %>% filter(season >= '2016-17',na.rm = TRUE)\n",
+    "team_stats <- team_stats %>% filter(season >= '2016-17', na.rm = TRUE)\n",
     "\n",
     "head(team_stats)"
    ]
@@ -453,19 +435,19 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "f945c87d",
+   "id": "401855ec",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.455025Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.453354Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.553196Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.551471Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.554585Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.553039Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.629017Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.627260Z"
     },
     "papermill": {
-     "duration": 0.113088,
-     "end_time": "2022-09-24T16:02:46.556273",
+     "duration": 0.087649,
+     "end_time": "2022-09-27T05:47:31.631177",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.443185",
+     "start_time": "2022-09-27T05:47:31.543528",
      "status": "completed"
     },
     "tags": []
@@ -554,25 +536,23 @@
     }
    ],
    "source": [
-    "team_stats_playoffs <- team_stats_playoffs %>%\n",
-    "clean_names()%>%\n",
-    "unique()\n",
+    "team_stats_playoffs <- team_stats_playoffs %>% clean_names() %>% unique()\n",
     "\n",
     "# Filter the last five years of data\n",
-    "team_stats_playoffs <- team_stats_playoffs %>% filter(season >= '2016-17',na.rm = TRUE)\n",
+    "team_stats_playoffs <- team_stats_playoffs %>% filter(season >= '2016-17', na.rm = TRUE)\n",
     "\n",
     "head(team_stats_playoffs)"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "19382f1c",
+   "id": "550ac54c",
    "metadata": {
     "papermill": {
-     "duration": 0.014267,
-     "end_time": "2022-09-24T16:02:46.578971",
+     "duration": 0.017038,
+     "end_time": "2022-09-27T05:47:31.656283",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.564704",
+     "start_time": "2022-09-27T05:47:31.639245",
      "status": "completed"
     },
     "tags": []
@@ -584,19 +564,19 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "e8062075",
+   "id": "6d4efac3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.599115Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.597532Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.619951Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.618173Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.675715Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.674179Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.694118Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.692377Z"
     },
     "papermill": {
-     "duration": 0.035404,
-     "end_time": "2022-09-24T16:02:46.622718",
+     "duration": 0.031853,
+     "end_time": "2022-09-27T05:47:31.696380",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.587314",
+     "start_time": "2022-09-27T05:47:31.664527",
      "status": "completed"
     },
     "tags": []
@@ -628,13 +608,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d4369458",
+   "id": "5d6bd33b",
    "metadata": {
     "papermill": {
-     "duration": 0.00837,
-     "end_time": "2022-09-24T16:02:46.639697",
+     "duration": 0.008005,
+     "end_time": "2022-09-27T05:47:31.712772",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.631327",
+     "start_time": "2022-09-27T05:47:31.704767",
      "status": "completed"
     },
     "tags": []
@@ -646,19 +626,19 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "0b7cca2a",
+   "id": "82f3d4c0",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.660307Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.658689Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.677914Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.675982Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.734953Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.733438Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.750256Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.748604Z"
     },
     "papermill": {
-     "duration": 0.032765,
-     "end_time": "2022-09-24T16:02:46.680722",
+     "duration": 0.029347,
+     "end_time": "2022-09-27T05:47:31.752418",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.647957",
+     "start_time": "2022-09-27T05:47:31.723071",
      "status": "completed"
     },
     "tags": []
@@ -700,13 +680,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "571919b5",
+   "id": "f1465d7a",
    "metadata": {
     "papermill": {
-     "duration": 0.008927,
-     "end_time": "2022-09-24T16:02:46.698739",
+     "duration": 0.008282,
+     "end_time": "2022-09-27T05:47:31.768907",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.689812",
+     "start_time": "2022-09-27T05:47:31.760625",
      "status": "completed"
     },
     "tags": []
@@ -725,13 +705,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "60665cd2",
+   "id": "887be1ba",
    "metadata": {
     "papermill": {
-     "duration": 0.00862,
-     "end_time": "2022-09-24T16:02:46.715862",
+     "duration": 0.008293,
+     "end_time": "2022-09-27T05:47:31.785338",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.707242",
+     "start_time": "2022-09-27T05:47:31.777045",
      "status": "completed"
     },
     "tags": []
@@ -746,19 +726,19 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "7194fe46",
+   "id": "cf617809",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.737691Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.735904Z",
-     "iopub.status.idle": "2022-09-24T16:02:46.793018Z",
-     "shell.execute_reply": "2022-09-24T16:02:46.791023Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.805149Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.803573Z",
+     "iopub.status.idle": "2022-09-27T05:47:31.866042Z",
+     "shell.execute_reply": "2022-09-27T05:47:31.864122Z"
     },
     "papermill": {
-     "duration": 0.071744,
-     "end_time": "2022-09-24T16:02:46.796266",
+     "duration": 0.074649,
+     "end_time": "2022-09-27T05:47:31.868338",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.724522",
+     "start_time": "2022-09-27T05:47:31.793689",
      "status": "completed"
     },
     "tags": []
@@ -766,7 +746,7 @@
    "outputs": [],
    "source": [
     "team_stats_playoffs <- transform(team_stats_playoffs, \n",
-    "                                 turnover_ratio = (turnovers * 100)/(field_goals_attempted +(free_throw_attempted *0.44) + assists + turnovers),\n",
+    "                                 turnover_ratio = (turnovers * 100)/(field_goals_attempted +(free_throw_attempted * 0.44) + assists + turnovers),\n",
     "                                 free_throw_rate = free_throw_attempted/field_goals_attempted)\n",
     "team_playoffs_metrics <- select(team_stats_playoffs[order(-team_stats_playoffs$turnover_ratio),],\n",
     "        c('team', 'turnover_ratio', 'win_percentage','points', 'field_goals_made', 'free_throw_rate', 'season' ))\n"
@@ -774,13 +754,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6479050f",
+   "id": "c41d5b4f",
    "metadata": {
     "papermill": {
-     "duration": 0.008984,
-     "end_time": "2022-09-24T16:02:46.814764",
+     "duration": 0.008472,
+     "end_time": "2022-09-27T05:47:31.885139",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.805780",
+     "start_time": "2022-09-27T05:47:31.876667",
      "status": "completed"
     },
     "tags": []
@@ -792,19 +772,19 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "4dbf10ac",
+   "id": "f7c4c4f1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:46.836319Z",
-     "iopub.status.busy": "2022-09-24T16:02:46.834590Z",
-     "iopub.status.idle": "2022-09-24T16:02:47.453206Z",
-     "shell.execute_reply": "2022-09-24T16:02:47.450276Z"
+     "iopub.execute_input": "2022-09-27T05:47:31.904790Z",
+     "iopub.status.busy": "2022-09-27T05:47:31.903329Z",
+     "iopub.status.idle": "2022-09-27T05:47:32.510561Z",
+     "shell.execute_reply": "2022-09-27T05:47:32.508850Z"
     },
     "papermill": {
-     "duration": 0.632698,
-     "end_time": "2022-09-24T16:02:47.456276",
+     "duration": 0.619652,
+     "end_time": "2022-09-27T05:47:32.512995",
      "exception": false,
-     "start_time": "2022-09-24T16:02:46.823578",
+     "start_time": "2022-09-27T05:47:31.893343",
      "status": "completed"
     },
     "tags": []
@@ -825,7 +805,7 @@
    ],
    "source": [
     "options(repr.plot.width = 10, repr.plot.height = 10)\n",
-    "top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>% group_by(team) %>% \n",
+    "top_n(team_playoffs_metrics %>% group_by(team) %>% \n",
     "  summarize(turnover_ratio = mean(turnover_ratio)), n=5, turnover_ratio) %>%\n",
     "  mutate(team = fct_reorder(team, turnover_ratio)) %>%\n",
     "  ggplot(., aes(x=turnover_ratio, y=team))+\n",
@@ -845,19 +825,19 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "id": "8cddae2e",
+   "id": "b77a6af4",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:47.478654Z",
-     "iopub.status.busy": "2022-09-24T16:02:47.476986Z",
-     "iopub.status.idle": "2022-09-24T16:02:48.715223Z",
-     "shell.execute_reply": "2022-09-24T16:02:48.712300Z"
+     "iopub.execute_input": "2022-09-27T05:47:32.535001Z",
+     "iopub.status.busy": "2022-09-27T05:47:32.533436Z",
+     "iopub.status.idle": "2022-09-27T05:47:33.793745Z",
+     "shell.execute_reply": "2022-09-27T05:47:33.791613Z"
     },
     "papermill": {
-     "duration": 1.25693,
-     "end_time": "2022-09-24T16:02:48.722584",
+     "duration": 1.277724,
+     "end_time": "2022-09-27T05:47:33.800230",
      "exception": false,
-     "start_time": "2022-09-24T16:02:47.465654",
+     "start_time": "2022-09-27T05:47:32.522506",
      "status": "completed"
     },
     "tags": []
@@ -877,13 +857,16 @@
     }
    ],
    "source": [
-    "top_5_teams <- top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>%\n",
-    "      group_by(team) %>% \n",
-    "      summarize(turnover_ratio = mean(turnover_ratio)), n=5, turnover_ratio) %>%\n",
-    "      select(team)\n",
+    "top_5_teams <- top_n(team_playoffs_metrics %>% \n",
+    "                         group_by(team) %>% \n",
+    "                         summarize(turnover_ratio = mean(turnover_ratio)),\n",
+    "                     n=5, \n",
+    "                     turnover_ratio) %>%\n",
+    "              select(team)\n",
+    "\n",
     "options(repr.plot.width = 40, repr.plot.height =20)\n",
     "\n",
-    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  filter(season >= \"2016-17\") %>%\n",
+    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>% \n",
     "  ggplot(., aes(season))+\n",
     "              geom_line(aes(x=season, y = turnover_ratio, group = team, color = team), size=2) +\n",
     "  scale_fill_brewer(palette=\"Accent\") +\n",
@@ -906,13 +889,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "929b4ee5",
+   "id": "760fe5db",
    "metadata": {
     "papermill": {
-     "duration": 0.014857,
-     "end_time": "2022-09-24T16:02:48.752407",
+     "duration": 0.014673,
+     "end_time": "2022-09-27T05:47:33.831417",
      "exception": false,
-     "start_time": "2022-09-24T16:02:48.737550",
+     "start_time": "2022-09-27T05:47:33.816744",
      "status": "completed"
     },
     "tags": []
@@ -924,19 +907,19 @@
   {
    "cell_type": "code",
    "execution_count": 10,
-   "id": "18e9c7b4",
+   "id": "a07a8478",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:48.785938Z",
-     "iopub.status.busy": "2022-09-24T16:02:48.784414Z",
-     "iopub.status.idle": "2022-09-24T16:02:49.140028Z",
-     "shell.execute_reply": "2022-09-24T16:02:49.138123Z"
+     "iopub.execute_input": "2022-09-27T05:47:33.863110Z",
+     "iopub.status.busy": "2022-09-27T05:47:33.861496Z",
+     "iopub.status.idle": "2022-09-27T05:47:34.203509Z",
+     "shell.execute_reply": "2022-09-27T05:47:34.201643Z"
     },
     "papermill": {
-     "duration": 0.375201,
-     "end_time": "2022-09-24T16:02:49.142415",
+     "duration": 0.360311,
+     "end_time": "2022-09-27T05:47:34.205648",
      "exception": false,
-     "start_time": "2022-09-24T16:02:48.767214",
+     "start_time": "2022-09-27T05:47:33.845337",
      "status": "completed"
     },
     "tags": []
@@ -957,7 +940,7 @@
    ],
    "source": [
     "options(repr.plot.width = 10, repr.plot.height = 10)\n",
-    "top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>% group_by(team) %>% \n",
+    "top_n(team_playoffs_metrics %>% group_by(team) %>% \n",
     "  summarize(win_percentage = mean(win_percentage)), n=5, win_percentage) %>%\n",
     "  mutate(team = fct_reorder(team, win_percentage)) %>%\n",
     "  ggplot(., aes(x=win_percentage, y=team))+\n",
@@ -978,19 +961,19 @@
   {
    "cell_type": "code",
    "execution_count": 11,
-   "id": "63149771",
+   "id": "f49cd077",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:49.177035Z",
-     "iopub.status.busy": "2022-09-24T16:02:49.175367Z",
-     "iopub.status.idle": "2022-09-24T16:02:50.411271Z",
-     "shell.execute_reply": "2022-09-24T16:02:50.409502Z"
+     "iopub.execute_input": "2022-09-27T05:47:34.239284Z",
+     "iopub.status.busy": "2022-09-27T05:47:34.237735Z",
+     "iopub.status.idle": "2022-09-27T05:47:35.433114Z",
+     "shell.execute_reply": "2022-09-27T05:47:35.431205Z"
     },
     "papermill": {
-     "duration": 1.259562,
-     "end_time": "2022-09-24T16:02:50.417389",
+     "duration": 1.21719,
+     "end_time": "2022-09-27T05:47:35.438093",
      "exception": false,
-     "start_time": "2022-09-24T16:02:49.157827",
+     "start_time": "2022-09-27T05:47:34.220903",
      "status": "completed"
     },
     "tags": []
@@ -1010,13 +993,13 @@
     }
    ],
    "source": [
-    "top_5_teams <- top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>%\n",
+    "top_5_teams <- top_n(team_playoffs_metrics %>% \n",
     "      group_by(team) %>% \n",
     "      summarize(win_percentage = mean(win_percentage)), n=5, win_percentage) %>%\n",
     "      select(team)\n",
     "options(repr.plot.width = 40, repr.plot.height =20)\n",
     "\n",
-    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  filter(season >= \"2016-17\") %>%\n",
+    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>% \n",
     "  ggplot(., aes(season))+\n",
     "              geom_line(aes(x=season, y = win_percentage, group = team, color = team), size=2) +\n",
     "  scale_fill_brewer(palette=\"Accent\") +\n",
@@ -1039,19 +1022,19 @@
   {
    "cell_type": "code",
    "execution_count": 12,
-   "id": "c69e8fff",
+   "id": "f17d957e",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:50.462007Z",
-     "iopub.status.busy": "2022-09-24T16:02:50.460499Z",
-     "iopub.status.idle": "2022-09-24T16:02:50.478721Z",
-     "shell.execute_reply": "2022-09-24T16:02:50.477033Z"
+     "iopub.execute_input": "2022-09-27T05:47:35.482603Z",
+     "iopub.status.busy": "2022-09-27T05:47:35.481004Z",
+     "iopub.status.idle": "2022-09-27T05:47:35.493934Z",
+     "shell.execute_reply": "2022-09-27T05:47:35.492219Z"
     },
     "papermill": {
-     "duration": 0.043171,
-     "end_time": "2022-09-24T16:02:50.481038",
+     "duration": 0.037009,
+     "end_time": "2022-09-27T05:47:35.496218",
      "exception": false,
-     "start_time": "2022-09-24T16:02:50.437867",
+     "start_time": "2022-09-27T05:47:35.459209",
      "status": "completed"
     },
     "tags": []
@@ -1067,13 +1050,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f12045dd",
+   "id": "e8ae7a8e",
    "metadata": {
     "papermill": {
-     "duration": 0.019872,
-     "end_time": "2022-09-24T16:02:50.519958",
+     "duration": 0.019168,
+     "end_time": "2022-09-27T05:47:35.534247",
      "exception": false,
-     "start_time": "2022-09-24T16:02:50.500086",
+     "start_time": "2022-09-27T05:47:35.515079",
      "status": "completed"
     },
     "tags": []
@@ -1085,19 +1068,19 @@
   {
    "cell_type": "code",
    "execution_count": 13,
-   "id": "d948df48",
+   "id": "a22f1094",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:50.563054Z",
-     "iopub.status.busy": "2022-09-24T16:02:50.561308Z",
-     "iopub.status.idle": "2022-09-24T16:02:50.853620Z",
-     "shell.execute_reply": "2022-09-24T16:02:50.851899Z"
+     "iopub.execute_input": "2022-09-27T05:47:35.575575Z",
+     "iopub.status.busy": "2022-09-27T05:47:35.574038Z",
+     "iopub.status.idle": "2022-09-27T05:47:35.857734Z",
+     "shell.execute_reply": "2022-09-27T05:47:35.856038Z"
     },
     "papermill": {
-     "duration": 0.31713,
-     "end_time": "2022-09-24T16:02:50.856260",
+     "duration": 0.307199,
+     "end_time": "2022-09-27T05:47:35.860166",
      "exception": false,
-     "start_time": "2022-09-24T16:02:50.539130",
+     "start_time": "2022-09-27T05:47:35.552967",
      "status": "completed"
     },
     "tags": []
@@ -1118,7 +1101,7 @@
    ],
    "source": [
     "options(repr.plot.width = 10, repr.plot.height = 10)\n",
-    "top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>% group_by(team) %>% \n",
+    "top_n(team_playoffs_metrics %>% group_by(team) %>% \n",
     "  summarize(points = mean(points)), n=5, points) %>%\n",
     "  mutate(team = fct_reorder(team, points)) %>%\n",
     "  ggplot(., aes(x=points, y=team))+\n",
@@ -1137,19 +1120,19 @@
   {
    "cell_type": "code",
    "execution_count": 14,
-   "id": "5cd4ade5",
+   "id": "f6fa3c28",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:50.903124Z",
-     "iopub.status.busy": "2022-09-24T16:02:50.901530Z",
-     "iopub.status.idle": "2022-09-24T16:02:52.119801Z",
-     "shell.execute_reply": "2022-09-24T16:02:52.117775Z"
+     "iopub.execute_input": "2022-09-27T05:47:35.905328Z",
+     "iopub.status.busy": "2022-09-27T05:47:35.903750Z",
+     "iopub.status.idle": "2022-09-27T05:47:37.121718Z",
+     "shell.execute_reply": "2022-09-27T05:47:37.119711Z"
     },
     "papermill": {
-     "duration": 1.248542,
-     "end_time": "2022-09-24T16:02:52.126293",
+     "duration": 1.246831,
+     "end_time": "2022-09-27T05:47:37.128147",
      "exception": false,
-     "start_time": "2022-09-24T16:02:50.877751",
+     "start_time": "2022-09-27T05:47:35.881316",
      "status": "completed"
     },
     "tags": []
@@ -1169,13 +1152,13 @@
     }
    ],
    "source": [
-    "top_5_teams <- top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>%\n",
+    "top_5_teams <- top_n(team_playoffs_metrics %>% \n",
     "      group_by(team) %>% \n",
     "      summarize(points = mean(points)), n=5, points) %>%\n",
     "      select(team)\n",
     "options(repr.plot.width = 40, repr.plot.height =20)\n",
     "\n",
-    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  filter(season >= \"2016-17\") %>%\n",
+    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  \n",
     "  ggplot(., aes(season))+\n",
     "              geom_line(aes(x=season, y = points, group = team, color = team), size=2) +\n",
     "  scale_fill_brewer(palette=\"Accent\") +\n",
@@ -1197,13 +1180,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5ca2e3cd",
+   "id": "62146c5e",
    "metadata": {
     "papermill": {
-     "duration": 0.027854,
-     "end_time": "2022-09-24T16:02:52.182150",
+     "duration": 0.026392,
+     "end_time": "2022-09-27T05:47:37.182022",
      "exception": false,
-     "start_time": "2022-09-24T16:02:52.154296",
+     "start_time": "2022-09-27T05:47:37.155630",
      "status": "completed"
     },
     "tags": []
@@ -1215,19 +1198,19 @@
   {
    "cell_type": "code",
    "execution_count": 15,
-   "id": "4b7e1e6c",
+   "id": "a475f3d9",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:52.237806Z",
-     "iopub.status.busy": "2022-09-24T16:02:52.236178Z",
-     "iopub.status.idle": "2022-09-24T16:02:52.557720Z",
-     "shell.execute_reply": "2022-09-24T16:02:52.555876Z"
+     "iopub.execute_input": "2022-09-27T05:47:37.238198Z",
+     "iopub.status.busy": "2022-09-27T05:47:37.236538Z",
+     "iopub.status.idle": "2022-09-27T05:47:37.543585Z",
+     "shell.execute_reply": "2022-09-27T05:47:37.541793Z"
     },
     "papermill": {
-     "duration": 0.351849,
-     "end_time": "2022-09-24T16:02:52.560254",
+     "duration": 0.33897,
+     "end_time": "2022-09-27T05:47:37.546049",
      "exception": false,
-     "start_time": "2022-09-24T16:02:52.208405",
+     "start_time": "2022-09-27T05:47:37.207079",
      "status": "completed"
     },
     "tags": []
@@ -1248,7 +1231,7 @@
    ],
    "source": [
     "options(repr.plot.width = 10, repr.plot.height = 10)\n",
-    "top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>% group_by(team) %>% \n",
+    "top_n(team_playoffs_metrics %>% group_by(team) %>% \n",
     "  summarize(field_goals_made = mean(field_goals_made)), n=5, field_goals_made) %>%\n",
     "  mutate(team = fct_reorder(team, field_goals_made)) %>%\n",
     "  ggplot(., aes(x=field_goals_made, y=team))+\n",
@@ -1267,19 +1250,19 @@
   {
    "cell_type": "code",
    "execution_count": 16,
-   "id": "b22f6c23",
+   "id": "e444732c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:52.619337Z",
-     "iopub.status.busy": "2022-09-24T16:02:52.617658Z",
-     "iopub.status.idle": "2022-09-24T16:02:53.799425Z",
-     "shell.execute_reply": "2022-09-24T16:02:53.797675Z"
+     "iopub.execute_input": "2022-09-27T05:47:37.602037Z",
+     "iopub.status.busy": "2022-09-27T05:47:37.600447Z",
+     "iopub.status.idle": "2022-09-27T05:47:38.794375Z",
+     "shell.execute_reply": "2022-09-27T05:47:38.792426Z"
     },
     "papermill": {
-     "duration": 1.218264,
-     "end_time": "2022-09-24T16:02:53.806068",
+     "duration": 1.227808,
+     "end_time": "2022-09-27T05:47:38.799907",
      "exception": false,
-     "start_time": "2022-09-24T16:02:52.587804",
+     "start_time": "2022-09-27T05:47:37.572099",
      "status": "completed"
     },
     "tags": []
@@ -1299,13 +1282,13 @@
     }
    ],
    "source": [
-    "top_5_teams <- top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>%\n",
+    "top_5_teams <- top_n(team_playoffs_metrics %>%\n",
     "      group_by(team) %>% \n",
     "      summarize(field_goals_made = mean(field_goals_made)), n=5, field_goals_made) %>%\n",
     "      select(team)\n",
     "options(repr.plot.width = 40, repr.plot.height =20)\n",
     "\n",
-    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  filter(season >= \"2016-17\") %>%\n",
+    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%\n",
     "  ggplot(., aes(season))+\n",
     "              geom_line(aes(x=season, y = field_goals_made, group = team, color = team), size=2) +\n",
     "  scale_fill_brewer(palette=\"Accent\") +\n",
@@ -1328,13 +1311,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5c78c3b1",
+   "id": "f3a1c242",
    "metadata": {
     "papermill": {
-     "duration": 0.033898,
-     "end_time": "2022-09-24T16:02:53.874497",
+     "duration": 0.031146,
+     "end_time": "2022-09-27T05:47:38.863659",
      "exception": false,
-     "start_time": "2022-09-24T16:02:53.840599",
+     "start_time": "2022-09-27T05:47:38.832513",
      "status": "completed"
     },
     "tags": []
@@ -1346,19 +1329,19 @@
   {
    "cell_type": "code",
    "execution_count": 17,
-   "id": "f37f1368",
+   "id": "b30c43db",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:53.941833Z",
-     "iopub.status.busy": "2022-09-24T16:02:53.940040Z",
-     "iopub.status.idle": "2022-09-24T16:02:54.263398Z",
-     "shell.execute_reply": "2022-09-24T16:02:54.261559Z"
+     "iopub.execute_input": "2022-09-27T05:47:38.934988Z",
+     "iopub.status.busy": "2022-09-27T05:47:38.926971Z",
+     "iopub.status.idle": "2022-09-27T05:47:39.222303Z",
+     "shell.execute_reply": "2022-09-27T05:47:39.220402Z"
     },
     "papermill": {
-     "duration": 0.359806,
-     "end_time": "2022-09-24T16:02:54.265869",
+     "duration": 0.329909,
+     "end_time": "2022-09-27T05:47:39.224512",
      "exception": false,
-     "start_time": "2022-09-24T16:02:53.906063",
+     "start_time": "2022-09-27T05:47:38.894603",
      "status": "completed"
     },
     "tags": []
@@ -1379,7 +1362,7 @@
    ],
    "source": [
     "options(repr.plot.width = 10, repr.plot.height = 10)\n",
-    "top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>% group_by(team) %>% \n",
+    "top_n(team_playoffs_metrics %>% group_by(team) %>% \n",
     "  summarize(free_throw_rate = mean(free_throw_rate)), n=5, free_throw_rate) %>%\n",
     "  mutate(team = fct_reorder(team, free_throw_rate)) %>%\n",
     "  ggplot(., aes(x=free_throw_rate, y=team))+\n",
@@ -1398,19 +1381,19 @@
   {
    "cell_type": "code",
    "execution_count": 18,
-   "id": "9991f644",
+   "id": "56c1a64c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2022-09-24T16:02:54.337167Z",
-     "iopub.status.busy": "2022-09-24T16:02:54.335453Z",
-     "iopub.status.idle": "2022-09-24T16:02:55.596984Z",
-     "shell.execute_reply": "2022-09-24T16:02:55.594203Z"
+     "iopub.execute_input": "2022-09-27T05:47:39.290515Z",
+     "iopub.status.busy": "2022-09-27T05:47:39.288906Z",
+     "iopub.status.idle": "2022-09-27T05:47:40.496592Z",
+     "shell.execute_reply": "2022-09-27T05:47:40.494741Z"
     },
     "papermill": {
-     "duration": 1.304563,
-     "end_time": "2022-09-24T16:02:55.603648",
+     "duration": 1.247191,
+     "end_time": "2022-09-27T05:47:40.502882",
      "exception": false,
-     "start_time": "2022-09-24T16:02:54.299085",
+     "start_time": "2022-09-27T05:47:39.255691",
      "status": "completed"
     },
     "tags": []
@@ -1430,13 +1413,13 @@
     }
    ],
    "source": [
-    "top_5_teams <- top_n(team_playoffs_metrics %>% filter(season >= \"2016-17\") %>%\n",
+    "top_5_teams <- top_n(team_playoffs_metrics %>%\n",
     "      group_by(team) %>% \n",
     "      summarize(free_throw_rate = mean(free_throw_rate)), n=5, free_throw_rate) %>%\n",
     "      select(team)\n",
     "options(repr.plot.width = 40, repr.plot.height =20)\n",
     "\n",
-    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%  filter(season >= \"2016-17\") %>%\n",
+    "team_playoffs_metrics %>% filter(team %in% top_5_teams$team) %>%\n",
     "  ggplot(., aes(season))+\n",
     "              geom_line(aes(x=season, y = free_throw_rate, group = team, color = team), size=2) +\n",
     "  scale_fill_brewer(palette=\"Accent\") +\n",
@@ -1458,13 +1441,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6a92816b",
+   "id": "c2d81077",
    "metadata": {
     "papermill": {
-     "duration": 0.037034,
-     "end_time": "2022-09-24T16:02:55.680850",
+     "duration": 0.038064,
+     "end_time": "2022-09-27T05:47:40.580121",
      "exception": false,
-     "start_time": "2022-09-24T16:02:55.643816",
+     "start_time": "2022-09-27T05:47:40.542057",
      "status": "completed"
     },
     "tags": []
@@ -1475,13 +1458,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0486ba2c",
+   "id": "314635b7",
    "metadata": {
     "papermill": {
-     "duration": 0.03636,
-     "end_time": "2022-09-24T16:02:55.753902",
+     "duration": 0.037405,
+     "end_time": "2022-09-27T05:47:40.655163",
      "exception": false,
-     "start_time": "2022-09-24T16:02:55.717542",
+     "start_time": "2022-09-27T05:47:40.617758",
      "status": "completed"
     },
     "tags": []
@@ -1504,13 +1487,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "40ef776f",
+   "id": "444e4270",
    "metadata": {
     "papermill": {
-     "duration": 0.036999,
-     "end_time": "2022-09-24T16:02:55.826856",
+     "duration": 0.036364,
+     "end_time": "2022-09-27T05:47:40.727717",
      "exception": false,
-     "start_time": "2022-09-24T16:02:55.789857",
+     "start_time": "2022-09-27T05:47:40.691353",
      "status": "completed"
     },
     "tags": []
@@ -1536,14 +1519,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 15.427299,
-   "end_time": "2022-09-24T16:02:55.985573",
+   "duration": 15.052189,
+   "end_time": "2022-09-27T05:47:40.885430",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2022-09-24T16:02:40.558274",
+   "start_time": "2022-09-27T05:47:25.833241",
    "version": "2.4.0"
   }
  },
